@@ -7,7 +7,6 @@ const App = () => {
   return (
     <div className="App">
       <WebPage />
-      <LoginWithGoogle/>
       <Footer/>
     </div>
   );

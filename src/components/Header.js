@@ -1,21 +1,32 @@
-import React from 'react';
-import '../styles/Header.css'; // Import your custom CSS
+import React, { useState } from 'react';
+import '../styles/Header.css';
+import LoginWithGoogle from '../components/Login.jsx';
 
-const Header = () => {
+function Header() {
+  const [showLogin, setShowLogin] = useState(false);  // State to manage login visibility
+
+  const handleLoginClick = () => {
+    setShowLogin(!showLogin);  // Toggle the login component visibility
+  };
+
   return (
     <header className="header">
-      <div className="styled-text">Styled</div> {/* Move "Styled" to the far left */}
       <div className="logo">
-        <span>Get</span>
+        <h1 className="title">GET STYLED</h1>
       </div>
-      <nav className="nav">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#blog">Blog</a>
-        <a href="#for-stylists" className="button">For Stylists</a>
-        <a href="#get-started" className="button button-dark">Get Started</a>
-      </nav>
+
+      <div className="header-right">
+        <a href="/virtual-try-on" className="nav-link">Virtual Try On</a>
+        <input type="text" className="search-bar" placeholder="Search..." />
+        <button className="login-btn" onClick={handleLoginClick}>
+          {showLogin ? 'Close Login' : 'Login'}  {/* Button text changes based on state */}
+        </button>
+      </div>
+
+      {/* Conditionally render the LoginWithGoogle component */}
+      {showLogin && <LoginWithGoogle />}
     </header>
   );
-};
+}
 
 export default Header;

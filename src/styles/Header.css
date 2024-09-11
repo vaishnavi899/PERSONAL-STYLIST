@@ -1,66 +1,57 @@
-/* Header Styling */
 .header {
   display: flex;
-  justify-content: flex-start; /* Aligns items to the start (left) */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 10px 20px;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.styled-text {
-  color: #ff467e; /* Highlighted color for "Styled" */
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 15px; /* Adds space between "Styled" and "Get" */
+.logo img {
+  height: 50px;
 }
 
-.logo {
+.title {
+  color: #ff004f;
   font-size: 24px;
   font-weight: bold;
+  margin-left: 20px;
+}
+
+.header-right {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Pushes the nav to the right side */
 }
 
-/* Navigation Styling */
-.nav {
-  display: flex;
-  gap: 25px;
-  margin-left: auto;
+.search-bar {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
 }
 
-.nav a {
+.nav-link {
+  margin-right: 20px;
+  font-size: 16px;
   text-decoration: none;
-  color: #000;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  color: #333;
 }
 
-/* Button Styling */
-.button {
-  border: 1px solid #ff467e;
-  color: #ff467e;
-  background-color: transparent;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+.nav-link:hover {
+  text-decoration: underline;
 }
 
-.button-dark {
-  background-color: #ff467e;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+.login-btn {
+  padding: 8px 16px;
+  background-color: #ff004f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.button-dark:hover {
-  background-color: #ff2b60;
-  color: #fff;
+.login-btn:hover {
+  background-color: #ff004f;
 }
