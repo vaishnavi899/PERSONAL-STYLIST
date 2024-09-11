@@ -1,0 +1,72 @@
+/* General Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Webpage Layout */
+.webpage {
+  text-align: center;
+  color: #ffffff;
+  width: 100%; /* Ensures the webpage takes the full width */
+  margin: 0 auto; /* Centers the webpage horizontally */
+}
+
+/* Hero Section Styling */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh; /* Adjust the height to your preference */
+  width: 100%; /* Makes sure the hero section takes the full width */
+  background-image: url('C:\Users\singh\stylist\public\image.png'); /* Use your relative image path */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 0 auto; /* Centers the hero section */
+  padding: 0 20px; /* Adds some padding to the sides */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px; /* Optional: Restricts the width of text content for readability */
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin: 0 0 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #ff467e;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff2b60;
+}
