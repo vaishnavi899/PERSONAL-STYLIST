@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import '../styles/Header.css';  // Import your custom CSS
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import '../styles/Header.css'; // Ensure your styles are updated accordingly
 
 function Header() {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } = useAuth0();
@@ -15,9 +16,19 @@ function Header() {
         <h1 className="title">GET STYLED</h1>
       </div>
       <div className="header-right">
-        <a href="/virtual-try-on" className="nav-link">Virtual Try On</a>
-        <a href="/contact-us" className="nav-link">Contact Us</a> {/* Added Contact Us link */}
-        <input type="text" className="search-bar" placeholder="Search..." />
+        <nav className="nav-links">
+        <Link to="/" className="nav-link">Home</Link> {/* Updated to Link */}
+          <Link to="/virtual-try-on" className="nav-link">Virtual Try On</Link>
+          <Link to="/explore" className="nav-link">Explore</Link>
+          <Link to="/contact-us" className="nav-link">Contact Us</Link>
+          <Link to="/products" className='nav-link'>Products</Link> {/* Added Products Link */}
+        </nav>
+        <div className="search-container">
+          <input type="text" className="search-bar" placeholder="Search..." />
+          <button className="search-btn">
+            <i className="fas fa-search"></i> {/* FontAwesome icon for search */}
+          </button>
+        </div>
       </div>
       {/* Conditionally render Login or Logout button based on authentication */}
       {isAuthenticated ? (

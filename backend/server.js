@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');  // Import the CORS middleware
 const productRoutes = require('./routes/Productroutes');
+const searchRouter = require('./routes/search');
+
 const path = require('path');
 require('dotenv').config();
 
@@ -20,6 +22,6 @@ app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'data/images')));
 // Routes
 app.use('/api/products', productRoutes);
-
+app.use('/api', searchRouter);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

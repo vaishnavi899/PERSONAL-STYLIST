@@ -5,49 +5,47 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-section">
-        <h3>Wedding Styling</h3>
+        <h3>Services</h3>
         <ul>
-          <li>Bride/Groom Styling</li>
-          <li>Virtual Bride/Groom Styling</li>
-          <li>Family Styling</li>
-          <li>Trousseau Shopping</li>
+          <li>Personal Styling</li>
+          <li>Virtual Try-On</li>
+          <li>Wardrobe Consultation</li>
+          <li>Shopping Assistance</li>
         </ul>
       </div>
       <div className="footer-section">
-        <h3>Personal Styling</h3>
+        <h3>Explore</h3>
         <ul>
-          <li>Style Makeover</li>
-          <li>Event Styling</li>
-          <li>Personal Shopping</li>
-          <li>Capsule Wardrobe</li>
+          <li>Latest Arrivals</li>
+          <li>Trending Styles</li>
+          <li>Style Blog</li>
+          <li>Client Testimonials</li>
         </ul>
       </div>
       <div className="footer-section">
         <h3>Support</h3>
         <ul>
-          <li>GS Concierge</li>
           <li>Help Center</li>
-          <li>GetCover</li>
+          <li>FAQs</li>
           <li>Contact Us</li>
         </ul>
       </div>
       <div className="footer-section">
-        <h3>About</h3>
+        <h3>Company</h3>
         <ul>
-          <li>Our Story</li>
-          <li>Join as a pro</li>
+          <li>About Us</li>
           <li>Careers</li>
-          <li>Get the app</li>
-          <li>Blog</li>
+          <li>Terms of Service</li>
+          <li>Privacy Policy</li>
         </ul>
       </div>
       <div className="footer-branding">
         <h2>GetStyled</h2>
-        <p>Book India's most in-demand styling and shopping pros from around the world and get advice over video call.</p>
+        <p>Redefining personal styling with the latest fashion trends, right at your fingertips.</p>
         <div className="social-icons">
-          <a href="#instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#gmail"><i class="fa-regular fa-envelope"></i></a>
-          <a href="#facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#instagram"><i className="fab fa-instagram"></i></a>
+          <a href="#gmail"><i className="fa-regular fa-envelope"></i></a>
+          <a href="#facebook"><i className="fa-brands fa-facebook"></i></a>
         </div>
       </div>
     </footer>

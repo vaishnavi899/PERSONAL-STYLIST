@@ -1,7 +1,7 @@
-// index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -13,7 +13,9 @@ root.render(
     clientId="62x01x5be5nDBq0QXgGxTEgcIYo7lcFW"
     authorizationParams={{ redirect_uri: window.location.origin }}
   >
-    <App />
+    <BrowserRouter> {/* Wrap App with BrowserRouter */}
+      <App />
+    </BrowserRouter>
   </Auth0Provider>
 );
 

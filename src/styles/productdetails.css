@@ -1,0 +1,47 @@
+/* productdetails.css */
+.product-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .review-section {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .review-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .review-section button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .review-section button:hover {
+    background-color: #0056b3;
+  }
+  
