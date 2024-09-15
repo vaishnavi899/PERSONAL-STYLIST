@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/WebPage.css'; // Import your custom CSS
 import Header from './Header.js'; // Import the Header component
-import Footer from './Footer.js'; // Import the Footer component
+
 
 const WebPage = () => {
   return (
@@ -14,9 +14,7 @@ const WebPage = () => {
           <a href="#get-started" className="cta-button">GET STARTED</a>
         </div>
       </section>
-
-      {/* Include Footer here */}
-      <Footer />
+      
     </div>
   );
 };
