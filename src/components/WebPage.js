@@ -14,6 +14,7 @@ const WebPage = () => {
           <a href="#get-started" className="cta-button">GET STARTED</a>
         </div>
       </section>
+      
     </div>
   );
 };

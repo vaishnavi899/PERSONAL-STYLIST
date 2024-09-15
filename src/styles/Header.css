@@ -1,66 +1,163 @@
-/* Header Styling */
+/* General Header Styling */
 .header {
   display: flex;
-  justify-content: flex-start; /* Aligns items to the start (left) */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 15px 30px;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.styled-text {
-  color: #ff467e; /* Highlighted color for "Styled" */
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 15px; /* Adds space between "Styled" and "Get" */
+.logo img {
+  height: 50px;
+  transition: transform 0.3s ease;
 }
 
-.logo {
-  font-size: 24px;
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.title {
+  color: #ff004f;
+  font-size: 26px;
   font-weight: bold;
+  margin-left: 20px;
+}
+
+/* Header Right Section */
+.header-right {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Pushes the nav to the right side */
 }
 
-/* Navigation Styling */
-.nav {
-  display: flex;
-  gap: 25px;
-  margin-left: auto;
+.search-bar {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 20px;
+  transition: border-color 0.3s ease;
 }
 
-.nav a {
+.search-bar:focus {
+  border-color: #ff004f;
+  outline: none;
+}
+
+/* Navigation Links */
+.nav-link {
+  margin-right: 25px;
+  font-size: 16px;
   text-decoration: none;
-  color: #000;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
-/* Button Styling */
-.button {
-  border: 1px solid #ff467e;
-  color: #ff467e;
-  background-color: transparent;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+.nav-link:hover {
+  color: #ff004f;
+  text-decoration: underline;
 }
 
-.button-dark {
-  background-color: #ff467e;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+/* Profile Info Styling */
+.profile-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
 }
 
-.button-dark:hover {
-  background-color: #ff2b60;
-  color: #fff;
+.profile-picture-container {
+  position: relative;
+}
+
+/* Profile Picture */
+.profile-picture {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Hide the user details by default */
+.user-details {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 60px; /* Positioning below the profile picture */
+  left: 0;
+  white-space: nowrap;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transform-origin: top right;
+  transform: translateX(0); /* Initial transform state */
+}
+
+/* Adjust positioning if profile picture is near the right edge of the screen */
+.profile-info:hover .user-details {
+  display: flex;
+  transform: translateX(calc(-100% + 50px)); /* Keep within the screen width */
+}
+
+/* Detect right-edge and shift */
+.profile-info:hover .user-details {
+  display: flex;
+  left: auto; /* Reset the left property */
+  right: 0; /* Align the box with the right side of the profile picture */
+}
+
+.user-details h2, .user-details p {
+  margin: 0;
+  color: #333;
+}
+
+.user-details p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Login/Logout Button */
+.login-btn, .logout-btn {
+  padding: 10px 20px;
+  background-color: #ff004f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px; /* Space between picture and button */
+}
+
+.logout-btn:hover {
+  background-color: #e00042;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .header-right {
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .login-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
