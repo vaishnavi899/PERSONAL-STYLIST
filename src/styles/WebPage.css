@@ -20,7 +20,6 @@ body, html {
   justify-content: center;
   height: 90vh; /* Adjust the height to your preference */
   width: 100%; /* Makes sure the hero section takes the full width */
-  background-image: url('C:\Users\singh\stylist\public\image.png'); /* Use your relative image path */
   background-size: cover;
   background-position: center;
   position: relative;
