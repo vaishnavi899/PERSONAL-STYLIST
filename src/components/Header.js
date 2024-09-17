@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import '../styles/Header.css'; // Ensure your styles are updated accordingly
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import '../styles/Header.css';  // Import your custom CSS
 
 function Header() {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } = useAuth0();
@@ -13,24 +13,16 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <h1 className="title">GET STYLED</h1>
+        {/* Insert the logo image next to the title */}
+        {/* <img src={process.env.PUBLIC_URL + '/Outfitter (1).png'} alt="Logo" className="header-logo" /> */}
+        <h1 className="title">Outfitter</h1>
       </div>
       <div className="header-right">
-        <nav className="nav-links">
-        <Link to="/" className="nav-link">Home</Link> {/* Updated to Link */}
-          <Link to="/virtual-try-on" className="nav-link">Virtual Try On</Link>
-          <Link to="/explore" className="nav-link">Explore</Link>
-          <Link to="/contact-us" className="nav-link">Contact Us</Link>
-          <Link to="/products" className='nav-link'>Products</Link> {/* Added Products Link */}
-        </nav>
-        <div className="search-container">
-          <input type="text" className="search-bar" placeholder="Search..." />
-          <button className="search-btn">
-            <i className="fas fa-search"></i> {/* FontAwesome icon for search */}
-          </button>
-        </div>
+        <Link to="/" className="nav-link">Home</Link> {/* Link for Home */}
+        <Link to="/contact-us" className="nav-link">About Us</Link> {/* Link for About Us */}
+        <Link to="/contact-us" className="nav-link">Contact Us</Link> {/* Link for Contact Us */}
+        <Link to="/stylequiz" className="nav-link">StyleQuiz</Link> {/* New Link for StyleQuiz */}
       </div>
-      {/* Conditionally render Login or Logout button based on authentication */}
       {isAuthenticated ? (
         <div className="profile-info">
           <div className="profile-picture-container">
@@ -52,7 +44,7 @@ function Header() {
           className="login-btn" 
           onClick={() => loginWithRedirect()}
         >
-          Log In
+          Sign Up / Log In
         </button>
       )}
     </header>

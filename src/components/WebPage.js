@@ -1,69 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/WebPage.css'; // Import your custom CSS
-
+import Header from './Header.js'; // Import the Header component
+import StyleQuiz from './StyleQuiz'; // Import the StyleQuiz component
 
 const WebPage = () => {
+  const [showQuiz, setShowQuiz] = useState(false); // State to toggle between WebPage and StyleQuiz
+
+  // Debugging: Log when the button is clicked
+  const handleGetOutfittedClick = () => {
+    console.log("Get Outfitted button clicked");
+    setShowQuiz(true); // Show the StyleQuiz when button is clicked
+  };
+
   return (
     <div className="webpage">
-      
-      
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1>DISCOVER YOUR PERSONAL STYLE</h1>
-          <p>Let us be your perfect styling partner</p>
-          <a href="#get-started" className="cta-button">GET STARTED</a>
-        </div>
-      </section>
-      
-      {/* Categories Section */}
-      <section className="categories">
-        <h2 className="section-title">EXPLORE BY CATEGORY</h2>
-        <div className="category-grid">
-          {/* Category Cards */}
-          <a href="/category/genz" className="category-card genz">
-            <div className="category-info">
-              <h3>GenZ</h3>
-              <p>Trendy and bold styles for the youth</p>
+      {showQuiz ? (
+        <StyleQuiz /> // Render the quiz if showQuiz is true
+      ) : (
+        <>
+          <Header />
+          <section className="hero">
+            <div className="hero">
+              <div className="hero-image"></div> {/* This div will handle the background image */}
+              <div className="hero-video">
+                <video
+                  className="hover-video" // Add a class to target the hover effect
+                  width="800"
+                  height="auto"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source
+                    src={process.env.PUBLIC_URL + '/mixkit-hand-selecting-through-clothes-23327-hd-ready.mp4'}
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
             </div>
-          </a>
-          
-          <a href="/category/luxury" className="category-card luxury">
-            <div className="category-info">
-              <h3>Luxury</h3>
-              <p>Exclusive and premium fashion</p>
+          </section>
+          <div className="button-container">
+            {/* Added console logging for click event */}
+            <button className="button" onClick={handleGetOutfittedClick}>
+              Get Outfitted
+            </button>
+          </div>
+
+          {/* Image and Video Section */}
+          <section className="media-section">
+            <div className="image-container">
+              <img
+                src={process.env.PUBLIC_URL + '/image123.png'}
+                alt="Fashion Outfit"
+                className="fashion-image"
+              />
+              <img
+                src={process.env.PUBLIC_URL + '/image.png'}
+                alt="Fashion Outfit"
+                className="fashion-image"
+              />
             </div>
-          </a>
-          
-          <a href="/category/latest" className="category-card latest">
-            <div className="category-info">
-              <h3>Latest Arrivals</h3>
-              <p>Fresh fashion arrivals for the season</p>
+
+            <div className="video-container">
+              <video
+                className="hover-video" // Add a class to target the hover effect
+                width="800"
+                height="auto"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source
+                  src={process.env.PUBLIC_URL + '/steps-video-optimized.mp4'}
+                  type="video/mp4"
+                />
+              </video>
             </div>
-          </a>
-          
-          <a href="/category/formal" className="category-card formal">
-            <div className="category-info">
-              <h3>Formal</h3>
-              <p>Classic and elegant office wear</p>
-            </div>
-          </a>
-          
-          <a href="/category/traditionals" className="category-card traditionals">
-            <div className="category-info">
-              <h3>Traditionals</h3>
-              <p>Beautiful traditional outfits for special occasions</p>
-            </div>
-          </a>
-          
-          <a href="/category/party-wear" className="category-card party-wear">
-            <div className="category-info">
-              <h3>Party Wear</h3>
-              <p>Glamorous outfits to shine at any event</p>
-            </div>
-          </a>
-        </div>
-      </section>
+          </section>
+        </>
+      )}
     </div>
   );
 };
