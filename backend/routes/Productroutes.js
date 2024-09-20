@@ -12,9 +12,11 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+// Get product by ID
 router.get('/:id', async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id); // Use findById
+    const product = await Product.findById(req.params.id); // Use findById to get specific product by ID
     if (product) {
       res.json(product);
     } else {
@@ -23,54 +25,36 @@ router.get('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
-});
+});// Search products by name or category
+router.get('/search', async (req, res) => {
+  const { name } = req.query; // Extract 'name' query parameter from the frontend
 
-// Add a review to a product
-router.post('/:id/reviews', async (req, res) => {
   try {
-    const product = await Product.findOne({ productId: req.params.id });
-    if (product) {
-      const review = req.body.review; // Expecting review text in the request body
-      if (!product.reviews) {
-        product.reviews = [];
-      }
-      product.reviews.push(review);
-      await product.save();
-      res.status(201).json({ message: 'Review added' });
-    } else {
-      res.status(404).json({ message: 'Product not found' });
+    // Ensure the 'name' query parameter is provided
+    if (!name) {
+      return res.status(400).json({ message: 'Search term is required' });
     }
+
+    // Find products where 'productDisplayName' or 'subCategory' contains the search term (case-insensitive)
+    const products = await Product.find({
+      $or: [
+        { productDisplayName: { $regex: name, $options: 'i' } },
+        { subCategory: { $regex: name, $options: 'i' } } // Optional: search in subCategory too
+      ]
+    }).limit(10); // Limit the results to 10
+
+    // If no products are found, return a message
+    if (products.length === 0) {
+      return res.json({ message: "No products found." });
+    }
+
+    // Return the found products
+    res.json(products);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error fetching products:', error); // Log the error for debugging
+    res.status(500).json({ message: 'Error fetching products', error });
   }
 });
 
-// Update a product (if needed)
-router.put('/:id', async (req, res) => {
-  try {
-    const product = await Product.findOneAndUpdate({ productId: req.params.id }, req.body, { new: true });
-    if (product) {
-      res.json(product);
-    } else {
-      res.status(404).json({ message: 'Product not found' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// Delete a product (if needed)
-router.delete('/:id', async (req, res) => {
-  try {
-    const product = await Product.findOneAndDelete({ productId: req.params.id });
-    if (product) {
-      res.json({ message: 'Product deleted' });
-    } else {
-      res.status(404).json({ message: 'Product not found' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
-});
 
 module.exports = router;

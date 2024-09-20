@@ -32,7 +32,7 @@ body {
   .hero-image {
     flex: 1; /* Takes available space */
     height: 100%;
-    background-image: url('C:\Users\asus\stylist\public\homebanner-title-removebg-preview.png');
+    
     background-size: auto;
     background-repeat: no-repeat;
     background-position: 23% center; /* Adjust image position */

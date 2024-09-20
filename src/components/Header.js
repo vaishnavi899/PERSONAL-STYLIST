@@ -21,7 +21,8 @@ function Header() {
         <Link to="/" className="nav-link">Home</Link> {/* Link for Home */}
         <Link to="/contact-us" className="nav-link">About Us</Link> {/* Link for About Us */}
         <Link to="/contact-us" className="nav-link">Contact Us</Link> {/* Link for Contact Us */}
-        <Link to="/stylequiz" className="nav-link">StyleQuiz</Link> {/* New Link for StyleQuiz */}
+        <Link to="/Quiz" className="nav-link">StyleQuiz</Link> {/* New Link for StyleQuiz */}
+        <Link to="/VirtualTryOn" className="nav-link">VirtualTryOn</Link> {/* New Link for VirtualTryOn */}
       </div>
       {isAuthenticated ? (
         <div className="profile-info">

@@ -6,6 +6,7 @@ const productSchema = new mongoose.Schema({
   productDisplayName: String,
   masterCategory: String,
   subCategory: String,
+  articleType:String,
   gender: String,
   baseColour: String,
   season: String,
