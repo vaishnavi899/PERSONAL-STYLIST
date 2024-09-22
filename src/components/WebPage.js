@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/WebPage.css'; // Import your custom CSS
 import Header from './Header.js'; // Import the Header component
 import StyleQuiz from './StyleQuiz'; // Import the StyleQuiz component
+import Review from './review.js';
 
 const WebPage = () => {
   const [showQuiz, setShowQuiz] = useState(false); // State to toggle between WebPage and StyleQuiz
+  const [showChatbot, setShowChatbot] = useState(false); // State to toggle chatbot visibility
 
   // Debugging: Log when the button is clicked
   const handleGetOutfittedClick = () => {
@@ -12,19 +14,46 @@ const WebPage = () => {
     setShowQuiz(true); // Show the StyleQuiz when button is clicked
   };
 
+  const handleChatbotClick = () => {
+    setShowChatbot(!showChatbot); // Toggle chatbot visibility
+  };
+
+  useEffect(() => {
+    // Load the chatbot script only if it's needed
+    if (showChatbot) {
+      window.embeddedChatbotConfig = {
+        chatbotId: "FhFB72KrOsX0rGT1jvcJ4",
+        domain: "www.chatbase.co"
+      };
+
+      const script = document.createElement('script');
+      script.src = "https://www.chatbase.co/embed.min.js";
+      script.setAttribute('chatbotId', "FhFB72KrOsX0rGT1jvcJ4");
+      script.setAttribute('domain', "www.chatbase.co");
+      script.defer = true;
+
+      document.body.appendChild(script);
+
+      // Cleanup script on unmount
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [showChatbot]);
+
   return (
     <div className="webpage">
       {showQuiz ? (
-        <StyleQuiz /> // Render the quiz if showQuiz is true
+        <StyleQuiz />
       ) : (
         <>
           <Header />
           <section className="hero">
             <div className="hero">
-              <div className="hero-image"></div> {/* This div will handle the background image */}
+              <div className="hero-image"></div>
               <div className="hero-video">
                 <video
-                  className="hover-video" // Add a class to target the hover effect
+                  className="hover-video"
                   width="800"
                   height="auto"
                   autoPlay
@@ -40,13 +69,13 @@ const WebPage = () => {
               </div>
             </div>
           </section>
+  
           <div className="button-container">
-            {/* Added console logging for click event */}
             <button className="button" onClick={handleGetOutfittedClick}>
               Get Outfitted
             </button>
           </div>
-
+  
           {/* Image and Video Section */}
           <section className="media-section">
             <div className="image-container">
@@ -61,10 +90,10 @@ const WebPage = () => {
                 className="fashion-image"
               />
             </div>
-
+  
             <div className="video-container">
               <video
-                className="hover-video" // Add a class to target the hover effect
+                className="hover-video"
                 width="800"
                 height="auto"
                 autoPlay
@@ -79,6 +108,25 @@ const WebPage = () => {
               </video>
             </div>
           </section>
+  
+          {/* Review Component Section */}
+          <section className="review-section">
+            <Review />
+          </section>
+
+          {/* Chatbot Toggle Button */}
+          
+
+          {/* Chatbot Iframe */}
+          {showChatbot && (
+            <iframe
+              src="https://www.chatbase.co/chatbot-iframe/FhFB72KrOsX0rGT1jvcJ4"
+              width="100%"
+              style={{ height: '100%', minHeight: '700px' }}
+              frameBorder="0"
+              title="Chatbot"
+            ></iframe>
+          )}
         </>
       )}
     </div>

@@ -109,13 +109,16 @@
 
 .profile-picture-container {
   position: relative;
+  padding-right: 20px;
+  padding-top: 12px;
+  
 }
 
 /* Profile Picture */
 .profile-picture {
   border-radius: 50%;
-  width: 50px; /* Increased size */
-  height: 50px;
+  width: 32px; /* Increased size */
+  height: 32px;
   margin-bottom: 10px;
   cursor: pointer;
   border: 3px solid #ff004f; /* Bright border color */
@@ -140,6 +143,7 @@
   white-space: nowrap;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  
 }
 
 .profile-info:hover .user-details {
@@ -164,8 +168,10 @@
 }
 
 .login-btn:hover, .signup-btn:hover, .logout-btn:hover {
-  background-color: #e00042;
-  transform: translateY(-2px);
+ background-color: #ffffff; /* Hover background color */
+  color: #e00042; /* Hover text color */
+  transform: translateY(-2px); /* Slight hover effect */
+  border: 2px solid #e00042;
 }
 
 /* Mobile Responsiveness */

@@ -3,116 +3,77 @@ body, html {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Dancing Script', cursive;
-
 }
 
 /* Webpage Layout */
 .webpage {
   text-align: center;
   color: #ffffff;
-  width: 100%; /* Ensures the webpage takes the full width */
-  margin: 0 auto; /* Centers the webpage horizontally */
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* Hero Section Styling */
 .hero {
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensures space between image and video */
-    height: 70vh;
-    background-color: #ACD8D6;
-    position: relative;
-    margin: 0 auto;
-  }
-  
-  /* Background image handled in this div */
-  .hero-image {
-    flex: 1; /* Takes available space */
-    height: 100%;
-    
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: 23% center; /* Adjust image position */
-  }
-
-
-  
-  /* Video styling */
-  .hero-video {
-    flex: 1; /* Takes the same amount of space as the image */
-    display: flex;
-    justify-content: center;
-    border-radius: 5%;
-    align-items: center;
-    padding-right: 40px;
-
-  }
-  
-  
-  .hero-video video {
-    border-radius: 10px;
-    max-width: 100%;
-    height: auto;
-  }
-  
-}
-
-
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures space between image and video */
+  height: 70vh;
+  background-color: #ACD8D6;
   position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px; /* Optional: Restricts the width of text content for readability */
   margin: 0 auto;
-  padding-left: 100px;
 }
 
-.hero-content h1 {
-  font-size: 48px;
-  margin: 0 0 20px;
+.hero-image {
+  flex: 1;
+  height: 100%;
+  background-image: url('C:\Users\singh\PERSONAL-STYLIST\public\WhatsApp Image 2024-09-20 at 23.54.46.jpeg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: 23% center;
 }
 
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 30px;
+.hero-video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border-radius: 5%;
+  align-items: center;
+  padding-right: 20px;
 }
 
-
-/* Button Container Styling */
-.button-container {
-  text-align: center;
-  margin-top: 30px;
+.hero-video video {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
 }
 
+/* Button Styling */
 .button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #ff004f;
-  border: none;
+  background-color: #ff004f; /* Initial background color */
+  color: #ffffff; /* Initial text color */
+  border: 2px solid #ffffff; /* Initial border color */
+  font-size: 19px; /* Adjust font size */
+  padding: 11px 30px; /* Adjust padding */
   border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  text-align: center;
-  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  cursor: pointer;
 }
 
 .button:hover {
-  background-color: #e00042;
-  transform: translateY(-2px);
+  background-color: #ffffff; /* Hover background color */
+  color: #e00042; /* Hover text color */
+  transform: translateY(-2px); /* Slight hover effect */
+  border: 2px solid #e00042;
+}
+
+/* Specific Container for Button */
+.button-container {
+  text-align: center;
+  margin-top: 30px;
 }
 
 /* Media Section (Image on Left, Video on Right) */
@@ -130,7 +91,6 @@ body {
   flex: 1;
   padding-right: 150px;
   padding-left: 30px;
-  
 }
 
 .fashion-image {
@@ -139,13 +99,11 @@ body {
   object-fit: contain;
 }
 
-.video-container  {
+.video-container {
   flex: 1;
   border-radius: 10px;
   padding-left: 20px;
- padding-top: 0;
-
-  
+  padding-top: 0;
 }
 
 .hover-video {
