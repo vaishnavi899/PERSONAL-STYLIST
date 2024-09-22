@@ -25,34 +25,34 @@ router.get('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
-});// Search products by name or category
+});
+// Search products by name or category
 router.get('/search', async (req, res) => {
   const { name } = req.query; // Extract 'name' query parameter from the frontend
 
-  try {
-    // Ensure the 'name' query parameter is provided
-    if (!name) {
-      return res.status(400).json({ message: 'Search term is required' });
-    }
+  if (!name) {
+    return res.status(400).json({ message: 'Search term is required' });
+  }
 
+  try {
     // Find products where 'productDisplayName' or 'subCategory' contains the search term (case-insensitive)
     const products = await Product.find({
       $or: [
         { productDisplayName: { $regex: name, $options: 'i' } },
-        { subCategory: { $regex: name, $options: 'i' } } // Optional: search in subCategory too
+        { masterCategory: { $regex: name, $options: 'i' } },
+        { subCategory: { $regex: name, $options: 'i' } },
+        { articleType: { $regex: name, $options: 'i' } }
       ]
     }).limit(10); // Limit the results to 10
 
-    // If no products are found, return a message
     if (products.length === 0) {
       return res.json({ message: "No products found." });
     }
 
-    // Return the found products
     res.json(products);
   } catch (error) {
-    console.error('Error fetching products:', error); // Log the error for debugging
-    res.status(500).json({ message: 'Error fetching products', error });
+    console.error('Error fetching products:', error);
+    res.status(500).json({ message: 'Error fetching products', error: error.message });
   }
 });
 
