@@ -115,7 +115,9 @@ const WebPage = () => {
           </section>
 
           {/* Chatbot Toggle Button */}
-          
+          <div className="chatbot-toggle" onClick={handleChatbotClick}>
+            <button className="chatbot-button">Chat with us</button>
+          </div>
 
           {/* Chatbot Iframe */}
           {showChatbot && (
