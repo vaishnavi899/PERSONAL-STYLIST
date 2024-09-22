@@ -114,21 +114,7 @@ const WebPage = () => {
             <Review />
           </section>
 
-          {/* Chatbot Toggle Button */}
-          <div className="chatbot-toggle" onClick={handleChatbotClick}>
-            <button className="chatbot-button">Chat with us</button>
-          </div>
-
-          {/* Chatbot Iframe */}
-          {showChatbot && (
-            <iframe
-              src="https://www.chatbase.co/chatbot-iframe/FhFB72KrOsX0rGT1jvcJ4"
-              width="100%"
-              style={{ height: '100%', minHeight: '700px' }}
-              frameBorder="0"
-              title="Chatbot"
-            ></iframe>
-          )}
+          
         </>
       )}
     </div>
