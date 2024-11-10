@@ -83,10 +83,10 @@ router.post('/continue', async (req, res) => {
       });
     }
 
-    // Quiz is complete, query MongoDB for product recommendations
+    
     const [type, color, usage] = selections;
 
-    // Use `subCategory` to match more specific categories
+    
     const products = await Product.find({
       masterCategory: type,
       baseColour: color,

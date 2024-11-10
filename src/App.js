@@ -9,6 +9,7 @@ import ProductList from './components/Productlist'; // Import your ProductList c
 import WebPage from './components/WebPage';
 import ProductDetails from './components/productdetails'; 
 import StyleQuiz from './components/StyleQuiz';
+import ProductSuggestions from './components/ProductSuggestions';
 const App = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/products/suggestions" element={<ProductSuggestions/>}/>
         {/* Add other routes as needed */}
       </Routes>
       <Footer />
