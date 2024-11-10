@@ -1,0 +1,107 @@
+/* Body styling */
+.contact-page {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Form container with black background */
+.contact-right {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #000;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Form heading and subheading */
+.contact-right h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #ff004f;
+}
+
+.contact-right p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+/* Form inputs */
+.contact-right input,
+.contact-right textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+/* Input focus effect */
+.contact-right input:focus,
+.contact-right textarea:focus {
+  border-color: #ff004f;
+  outline: none;
+}
+
+/* Submit button */
+.contact-right .btn2 {
+  background-color: #ff004f;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+/* Hover effect for the button */
+.contact-right .btn2:hover {
+  background-color: #e50043;
+  box-shadow: 0 4px 12px rgba(255, 0, 79, 0.4);
+}
+
+/* Message text */
+#msg {
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #ff004f;
+  text-align: center;
+}
+
+/* Placeholder styling */
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+  color: #bbb;
+}
+
+/* Ensure full page height on mobile and small screens */
+html, body {
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .contact-right {
+    padding: 15px;
+  }
+
+  .contact-right .btn2 {
+    font-size: 16px;
+  }
+}

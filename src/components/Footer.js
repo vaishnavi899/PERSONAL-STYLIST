@@ -1,53 +1,25 @@
+// src/components/Footer.js
 import React from 'react';
-import '../styles/Footer.css'; // Separate CSS for the footer component
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import '../styles/Footer.css'; 
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-section">
-        <h3>Wedding Styling</h3>
-        <ul>
-          <li>Bride/Groom Styling</li>
-          <li>Virtual Bride/Groom Styling</li>
-          <li>Family Styling</li>
-          <li>Trousseau Shopping</li>
-        </ul>
-      </div>
-      <div className="footer-section">
-        <h3>Personal Styling</h3>
-        <ul>
-          <li>Style Makeover</li>
-          <li>Event Styling</li>
-          <li>Personal Shopping</li>
-          <li>Capsule Wardrobe</li>
-        </ul>
-      </div>
-      <div className="footer-section">
-        <h3>Support</h3>
-        <ul>
-          <li>GS Concierge</li>
-          <li>Help Center</li>
-          <li>GetCover</li>
-          <li>Contact Us</li>
-        </ul>
-      </div>
-      <div className="footer-section">
-        <h3>About</h3>
-        <ul>
-          <li>Our Story</li>
-          <li>Join as a pro</li>
-          <li>Careers</li>
-          <li>Get the app</li>
-          <li>Blog</li>
-        </ul>
-      </div>
-      <div className="footer-branding">
-        <h2>GetStyled</h2>
-        <p>Book India's most in-demand styling and shopping pros from around the world and get advice over video call.</p>
-        <div className="social-icons">
-          <a href="#instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#gmail"><i class="fa-regular fa-envelope"></i></a>
-          <a href="#facebook"><i class="fa-brands fa-facebook"></i></a>
+      <div className="webfooter">
+        <div className="footer-section">
+        <Link to="/about-us"><h3>About Us</h3></Link>
+          <Link to="/privacy-policy"><h3>Privacy Policy</h3></Link>
+          {/* Update the Contact Us link to navigate to /contact-us */}
+          <Link to="/contact-us"><h3>Contact Us</h3></Link>
+          <div className="social-icons">
+            <a href="#instagram"><i className="fab fa-instagram"></i></a>
+            <a href="#gmail"><i className="fa-regular fa-envelope"></i></a>
+            <a href="#facebook"><i className="fa-brands fa-facebook"></i></a>
+          </div>
+        </div>
+        <div className="rights">
+          <p>© 2024 Outfitter - All Rights Reserved</p>
         </div>
       </div>
     </footer>

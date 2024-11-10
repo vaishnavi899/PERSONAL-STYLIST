@@ -1,55 +1,92 @@
 /* Footer Section */
 .footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f9f9f9;
-  padding: 40px;
+  width: 100%;
+  
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.webfooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+  
 }
 
 .footer-section {
-  flex: 1;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .footer-section h3 {
   font-size: 18px;
-  margin-bottom: 15px;
+  margin-right: 40px;
 }
 
-.footer-section ul {
-  list-style-type: none;
-  padding: 0;
+/* Remove link styling and make it look like normal text */
+.footer-section a {
+  color: inherit;         /* Make link color the same as surrounding text */
+  text-decoration: none;  /* Remove underline */
+  font-weight: normal;    /* Make sure font-weight is normal */
 }
 
-.footer-section li {
-  margin-bottom: 10px;
+.footer-section a:hover {
+  color: inherit;         /* Prevent color change on hover */
+  text-decoration: none;  /* No underline on hover */
 }
 
-.footer-branding {
-  text-align: right;
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
 }
 
-.footer-branding h2 {
-  font-size: 24px;
-  color: #ff4c5b;
-  margin-bottom: 10px;
-}
-
-.footer-branding p {
-  max-width: 300px;
-  margin-bottom: 20px;
-}
-
 .social-icons a {
-  margin-right: 10px;
-  font-size: 20px;
+  margin-right: 0px;
+  margin-left: 15px;
+  font-size: 24px;
   color: #333;
   text-decoration: none;
 }
 
 .social-icons a:hover {
   color: #ff4c5b;
+}
+
+.rights {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+  background-color: #ACD8D6;
+}
+
+/* Ensuring footer sits at the bottom of the page without extra space */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Takes up remaining space, pushing footer to the bottom */
 }
