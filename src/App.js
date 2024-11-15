@@ -9,18 +9,13 @@ import ProductList from './components/Productlist';
 import WebPage from './components/WebPage';
 import ProductDetails from './components/productdetails';
 import StyleQuiz from './components/StyleQuiz';
-<<<<<<< HEAD
-import ProductSuggestions from './components/ProductSuggestions';
-const App = () => {
-=======
 import PrivacyPolicy from './components/privacyPolicy';
 import AboutUs from './components/AboutUs';
-
-
+import ProductSuggestions from './components/ProductSuggestions';
+import ImageUpload from './components/ImageUpload';
 function App() {
   const location = useLocation(); // Get the current route
 
->>>>>>> 626554a36b0be62d3ec54273215117e3c516fa1b
   return (
     <>
       <Routes>
@@ -33,6 +28,7 @@ function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/products/suggestions" element={<ProductSuggestions/>}/>
+        <Route path="/upload-image" element={<ImageUpload/>}/>
         {/* Add other routes as needed */}
       </Routes>
       
@@ -41,5 +37,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
