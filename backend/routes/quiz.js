@@ -63,7 +63,7 @@ router.post('/continue', async (req, res) => {
     // Fetch products based on current selections
     const [gender, type, color, usage] = selections;
 
-    let filter = { gender: selections[0] }; // Base filter by gender
+    let filter = { gender }; // Base filter by gender
 
     // Directly handle product fetching for Watches, Jewellery, and Bags
     if (["Watches", "Jewellery", "Bags"].includes(type)) {
@@ -84,17 +84,6 @@ router.post('/continue', async (req, res) => {
       if (currentQuestionIndex >= 3) filter.usage = usage; // Filter by usage if available
     }
 
-<<<<<<< HEAD
-    
-    const [type, color, usage] = selections;
-
-    
-    const products = await Product.find({
-      masterCategory: type,
-      baseColour: color,
-      usage: usage
-    }).limit(15);
-=======
     // Continue to fetch products if the quiz is not completed yet
     const products = await Product.find(filter).limit(15);
 
@@ -109,7 +98,6 @@ router.post('/continue', async (req, res) => {
       showProducts: true,
       allowContinue: currentQuestionIndex + 1 < questions.length // Only allow continuing if there are more questions
     };
->>>>>>> 626554a36b0be62d3ec54273215117e3c516fa1b
 
     // If user has reached the final question
     if (currentQuestionIndex + 1 >= questions.length) {

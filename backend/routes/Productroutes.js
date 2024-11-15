@@ -133,38 +133,23 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> 626554a36b0be62d3ec54273215117e3c516fa1b
 // Search products by name or category
 router.get('/search', async (req, res) => {
   const { name } = req.query;
 
-<<<<<<< HEAD
-  try {
-    if (!name) {
-      return res.status(400).json({ message: 'Search term is required' });
-    }
-
-    const products = await Product.find({
-      $or: [
-        { productDisplayName: { $regex: name, $options: 'i' } },
-        { subCategory: { $regex: name, $options: 'i' } }
-=======
   if (!name) {
     return res.status(400).json({ message: 'Search term is required' });
   }
 
   try {
-    // Find products where 'productDisplayName' or 'subCategory' contains the search term (case-insensitive)
+    // Find products where 'productDisplayName', 'subCategory', 'masterCategory', or 'articleType' contains the search term (case-insensitive)
     const products = await Product.find({
       $or: [
         { productDisplayName: { $regex: name, $options: 'i' } },
         { masterCategory: { $regex: name, $options: 'i' } },
         { subCategory: { $regex: name, $options: 'i' } },
         { articleType: { $regex: name, $options: 'i' } }
->>>>>>> 626554a36b0be62d3ec54273215117e3c516fa1b
       ]
     }).limit(10);
 
@@ -175,17 +160,8 @@ router.get('/search', async (req, res) => {
     res.json(products);
   } catch (error) {
     console.error('Error fetching products:', error);
-<<<<<<< HEAD
-    res.status(500).json({ message: 'Error fetching products', error });
-=======
     res.status(500).json({ message: 'Error fetching products', error: error.message });
->>>>>>> 626554a36b0be62d3ec54273215117e3c516fa1b
   }
 });
 
 module.exports = router;
-
-
-
-
-

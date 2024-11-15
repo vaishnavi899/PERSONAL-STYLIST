@@ -3,8 +3,9 @@ process.env.TF_ENABLE_ONEDNN_OPTS = '0'; // Suppress oneDNN optimization warning
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const productRoutes = require('./routes/Productroutes');
-const quizRouter = require('./routes/quiz');
+const productRoutes = require('./routes/ProductRoutes');
+const quizRouter = require('./routes/quizRoutes');
+const recommendationRouter = require('./routes/recommendationRoutes'); // Add this route
 const path = require('path');
 require('dotenv').config();
 
@@ -24,12 +25,9 @@ app.use('/images', express.static(path.join(__dirname, 'data/images')));
 
 // Routes
 app.use('/api/products', productRoutes);
-<<<<<<< HEAD
-
-app.use('/api/quiz',quizRouter);
-=======
 app.use('/api/quiz', quizRouter);
+app.use('/api/recommendations', recommendationRouter); // Add the recommendation route
 
->>>>>>> 626554a36b0be62d3ec54273215117e3c516fa1b
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
