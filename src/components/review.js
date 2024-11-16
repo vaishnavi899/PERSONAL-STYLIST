@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/review.css';
 
 const reviews = [
@@ -26,6 +26,37 @@ const reviews = [
 ];
 
 const ReviewSection = () => {
+  const [newReview, setNewReview] = useState({
+    name: '',
+    rating: 1,
+    comment: ''
+  });
+
+  const [reviewsList, setReviewsList] = useState(reviews);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewReview({
+      ...newReview,
+      [name]: value
+    });
+  };
+
+  const handleSubmitReview = (e) => {
+    e.preventDefault();
+    const date = new Date().toLocaleDateString(); // Get current date
+    const avatar = `https://i.pravatar.cc/100?img=${Math.floor(Math.random() * 10) + 1}`; // Random avatar for simplicity
+    const review = {
+      ...newReview,
+      date,
+      avatar
+    };
+
+    // Add the new review to the list and reset form
+    setReviewsList([review, ...reviewsList]);
+    setNewReview({ name: '', rating: 1, comment: '' });
+  };
+
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
       <span key={i} className={i < rating ? 'star filled' : 'star'}>&#9733;</span>
@@ -35,7 +66,7 @@ const ReviewSection = () => {
   return (
     <div className="review-section">
       <h2 className="section-title">Customer Reviews</h2>
-      {reviews.map((review, index) => (
+      {reviewsList.map((review, index) => (
         <div key={index} className="review-card">
           <img src={review.avatar} alt={`${review.name}'s avatar`} className="avatar" />
           <div className="review-content">
@@ -46,8 +77,182 @@ const ReviewSection = () => {
           </div>
         </div>
       ))}
+
+      {/* Write a Review Form */}
+      <h3 className="write-review-title">Write a Review</h3>
+      <form className="review-form" onSubmit={handleSubmitReview}>
+        <div className="form-field">
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            value={newReview.name}
+            onChange={handleInputChange}
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div className="form-field">
+          <label>Rating</label>
+          <select
+            name="rating"
+            value={newReview.rating}
+            onChange={handleInputChange}
+            required
+          >
+            {[1, 2, 3, 4, 5].map((star) => (
+              <option key={star} value={star}>
+                {star} Stars
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-field">
+          <label>Comment</label>
+          <textarea
+            name="comment"
+            value={newReview.comment}
+            onChange={handleInputChange}
+            placeholder="Write your review"
+            required
+          />
+        </div>
+        <button type="submit" className="submit-btn">Submit Review</button>
+      </form>
     </div>
   );
 };
 
 export default ReviewSection;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,31 @@
-// components/LoginButton.js
-import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import { GoogleLogin } from 'react-google-login';
 
-const LoginButton = () => {
-  const { loginWithRedirect } = useAuth0();
+const ClientID ="693879798659-k4sfauutj22aglmgln18l9srmotdn8i6.apps.googleusercontent.com";
 
-  return <button onClick={() => loginWithRedirect()}>Log In</button>;
-};
+function Login(){
 
-export default LoginButton;
+  const onSuccess = (res) =>{
+    console.log("Logined successfully");
+  }
+
+  const onFailure = (res) =>{
+    console.log("Login Failed");
+  }
+
+  return(
+    <div id ="signInButton">
+      <GoogleLogin
+          clientId={ClientID}
+          buttonText='Login'
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_origin'}
+          isSignedIn={true} 
+
+      />
+
+    </div>
+
+  )
+}
+export default Login;

@@ -11,7 +11,7 @@ import ProductDetails from './components/productdetails';
 import StyleQuiz from './components/StyleQuiz';
 import PrivacyPolicy from './components/privacyPolicy';
 import AboutUs from './components/AboutUs';
-
+import Chatbot from './components/Chatbot';
 
 function App() {
   const location = useLocation(); // Get the current route
@@ -29,6 +29,21 @@ function App() {
         <Route path="/products/:id" element={<ProductDetails />} />
         {/* Add other routes as needed */}
       </Routes>
+      <Chatbot />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
       {/* Conditionally render Footer based on the route */}
       {location.pathname !== '/contact-us' && location.pathname !== '/privacy-policy' && location.pathname !== '/about-us' && <Footer />}
