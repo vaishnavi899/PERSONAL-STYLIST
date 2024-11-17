@@ -63,7 +63,7 @@ router.post('/continue', async (req, res) => {
     // Fetch products based on current selections
     const [gender, type, color, usage] = selections;
 
-    let filter = { gender: selections[0] }; // Base filter by gender
+    let filter = { gender }; // Base filter by gender
 
     // Directly handle product fetching for Watches, Jewellery, and Bags
     if (["Watches", "Jewellery", "Bags"].includes(type)) {

@@ -13,6 +13,8 @@ import PrivacyPolicy from './components/privacyPolicy';
 import AboutUs from './components/AboutUs';
 import Chatbot from './components/Chatbot';
 
+import ProductSuggestions from './components/ProductSuggestions';
+import ImageUpload from './components/ImageUpload';
 function App() {
   const location = useLocation(); // Get the current route
 
@@ -27,28 +29,16 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/products/suggestions" element={<ProductSuggestions/>}/>
+        <Route path="/upload-image" element={<ImageUpload/>}/>
         {/* Add other routes as needed */}
       </Routes>
       <Chatbot />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
       {/* Conditionally render Footer based on the route */}
       {location.pathname !== '/contact-us' && location.pathname !== '/privacy-policy' && location.pathname !== '/about-us' && <Footer />}
     </>
   );
 }
+
 
 export default App;

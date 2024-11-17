@@ -1,11 +1,12 @@
+process.env.TF_ENABLE_ONEDNN_OPTS = '0'; // Suppress oneDNN optimization warnings
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const productRoutes = require('./routes/Productroutes');
+const productRoutes = require('./routes/ProductRoutes');
 const quizRouter = require('./routes/quiz');
-const outfitRoutes = require('./routes/outfitRoutes');  // Import the new outfit routes
+//const recommendationRouter = require('./routes/recommendationRoutes'); // Add this route
 const path = require('path');
-const data = require('./data.json');  // Import the local dataset
 require('dotenv').config();
 
 const app = express();
@@ -24,22 +25,8 @@ app.use('/images', express.static(path.join(__dirname, 'data/images')));
 
 // Routes
 app.use('/api/products', productRoutes);
-app.use('/api/quiz', quizRouter);
-app.use('/api', outfitRoutes);  // Add outfit suggestion routes
+ app.use('/api/quiz', quizRouter);
+//app.use('/api/recommendations', recommendationRouter); // Add the recommendation route
 
-// Chatbot Route
-app.post('/api/chatbot', (req, res) => {
-  const userInput = req.body.userInput;
-  const chatbotResponse = getResponse(userInput);
-  res.json({ chatbotResponse });
-});
-
-// Function to get response from the dataset
-function getResponse(input) {
-  const lowerCaseInput = input.toLowerCase();
-  const response = data.find((item) => item.question.toLowerCase() === lowerCaseInput);
-  return response ? response.answer : 'Sorry, I didn\'t understand that.';
-}
-
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
